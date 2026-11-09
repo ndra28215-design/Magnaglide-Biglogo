@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#071c25" />
+  <meta name="description" content="Discover MAGNAGLIDE magnetic linear control automatic door systems. Silent, smooth, safe, smart and built to last. Exclusive North American partner: IMSENT INC." />
+  <title>MAGNAGLIDE — Magnetic Motion, Reimagined</title>
+
+  <!-- Tailwind CSS CDN: convenient for contest preview. For production, compile Tailwind locally. -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: '#071c25',
+            deep: '#0b2732',
+            panel: '#103440',
+            cyan: '#39c7d8',
+            gold: '#e6a52e',
+            mist: '#eaf1f2'
+          },
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            display: ['Manrope', 'Inter', 'ui-sans-serif', 'sans-serif']
+          },
+          boxShadow: {
+            glow: '0 0 60px rgba(57,199,216,.16)'
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+    body { background: #071c25; }
+    .hero-shade { background: linear-gradient(90deg, rgba(5,20,27,.91) 0%, rgba(5,20,27,.72) 43%, rgba(5,20,27,.16) 100%); }
+    .grid-lines {
+      background-image: linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: linear-gradient(to bottom, black, transparent 90%);
+    }
+    .text-outline { -webkit-text-stroke: 1px rgba(234,241,242,.38); color: transparent; }
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    .nav-link { position: relative; }
+    .nav-link::after { content: ''; position: absolute; left: 0; bottom: -8px; width: 0; height: 2px; background: #39c7d8; transition: width .25s ease; }
+    .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+    .video-poster { background-size: cover; background-position: center; }
+    .video-play-button[hidden] { display: none; }
+    .video-stop-button[hidden] { display: none; }
+    .play-ring { box-shadow: 0 0 0 12px rgba(57,199,216,.12), 0 0 50px rgba(57,199,216,.28); }
+    .door-card:hover .door-image { transform: scale(1.045); }
+    .door-image { transition: transform .65s cubic-bezier(.2,.7,.2,1); }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+
+<body class="font-sans text-mist antialiased selection:bg-cyan selection:text-ink">
+  <!-- =========================================================
+       GLOBAL ASSET NOTES
+       1) Keep magnaglide-logo.png beside this index.html file.
+       2) Put the four original MP4 videos beside index.html too.
+       3) Replace the suggested filenames in the VIDEO comments below
+          if your actual filenames are different.
+       4) Replace every image URL marked "IMAGE PLACEHOLDER" with
+          a client-approved product/application photo when available.
+       No separate assets folder is required for this starter.
+       ========================================================= -->
+
+  <!-- HEADER / GLOBAL NAVIGATION -->
+  <header class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-ink/85 backdrop-blur-xl">
+    <div class="mx-auto flex h-[78px] max-w-[1440px] items-center justify-between px-5 sm:px-8 lg:px-12">
+      <a href="#home" class="flex items-center gap-3 self-start" aria-label="MAGNAGLIDE home">
+        <!-- LOGO: Replace magnaglide-logo.png with the final approved logo file. Keep it in the same folder as index.html. -->
+        <img src="big-logo.png" alt="MAGNAGLIDE — Engineered for Effortless Motion" class="h-[72px] w-auto object-contain sm:h-[104px] lg:h-[120px]" />
+      </a>
+
+      <nav class="hidden items-center gap-8 lg:flex" aria-label="Main navigation">
+        <a class="nav-link text-[11px] font-bold uppercase tracking-[.19em] text-white/75 hover:text-white" href="#home">Home</a>
+        <a class="nav-link text-[11px] font-bold uppercase tracking-[.19em] text-white/75 hover:text-white" href="#technology">Technology</a>
+        <a class="nav-link text-[11px] font-bold uppercase tracking-[.19em] text-white/75 hover:text-white" href="#solutions">Solutions</a>
+        <a class="nav-link text-[11px] font-bold uppercase tracking-[.19em] text-white/75 hover:text-white" href="#performance">Performance</a>
+        <a class="nav-link text-[11px] font-bold uppercase tracking-[.19em] text-white/75 hover:text-white" href="#about">About</a>
+      </nav>
+
+      <a href="#contact" class="hidden rounded-full border border-cyan/70 px-5 py-3 text-[10px] font-extrabold uppercase tracking-[.18em] text-cyan transition hover:bg-cyan hover:text-ink sm:inline-flex">Talk to our team <span class="ml-3">↗</span></a>
+
+      <button id="menuBtn" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-white lg:hidden" aria-label="Open navigation" aria-expanded="false">
+        <span class="text-xl">☰</span>
+      </button>
+    </div>
+    <nav id="mobileMenu" class="hidden border-t border-white/10 bg-ink px-6 py-5 lg:hidden" aria-label="Mobile navigation">
+      <div class="flex flex-col gap-5 text-xs font-bold uppercase tracking-[.18em]">
+        <a href="#home">Home</a><a href="#technology">Technology</a><a href="#solutions">Solutions</a><a href="#performance">Performance</a><a href="#about">About</a><a class="text-cyan" href="#contact">Contact IMSENT INC ↗</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- =========================================================
+         PAGE 01 / HOME
+         HERO VIDEO:
+         Replace "magnaglide-video-04.mp4" with the actual filename
+         of the wide double-glass-door video (the waterfront office
+         scene shown in the supplied screenshot).
+         Keep the MP4 beside index.html. If no video is available,
+         the CSS background image remains as a visual fallback.
+         ========================================================= -->
+    <section id="home" class="relative flex min-h-[760px] items-center overflow-hidden pt-[78px] lg:min-h-[850px]">
+      <div class="absolute inset-0" data-video-player>
+        <!-- HERO VIDEO ASSET: Replace this source filename with your actual double-leaf glass door MP4. -->
+        <video
+  class="h-full w-full object-cover"
+  muted
+  playsinline
+  preload="none"
+  poster="poster-hero-2.png"
+>
+  <source src="MAGNAGLIDE.mp4" type="video/mp4" />
+</video>
+        <!-- IMAGE PLACEHOLDER / FALLBACK: replace the poster URL above with an approved still from the real video. -->
+        <div class="hero-shade pointer-events-none absolute inset-0"></div>
+        <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/15"></div>
+        <div class="grid-lines pointer-events-none absolute inset-0 opacity-40"></div>
+        <button type="button" class="video-play-button absolute bottom-24 right-6 z-20 inline-flex items-center gap-3 rounded-full border border-white/40 bg-ink/65 px-5 py-3 text-[10px] font-bold uppercase tracking-[.18em] text-white backdrop-blur transition hover:border-cyan hover:text-cyan focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan sm:right-8" aria-label="Play hero video">
+          <svg aria-hidden="true" class="h-4 w-4 fill-current" viewBox="0 0 16 16"><path d="M4 2.8a.8.8 0 0 1 1.2-.69l8 5.2a.8.8 0 0 1 0 1.38l-8 5.2A.8.8 0 0 1 4 13.2z"/></svg>
+          Play film
+        </button>
+        <button type="button" class="video-stop-button absolute bottom-24 right-36 z-20 rounded-full border border-white/40 bg-ink/65 px-5 py-3 text-[10px] font-bold uppercase tracking-[.18em] text-white backdrop-blur transition hover:border-cyan hover:text-cyan focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan sm:right-40" aria-label="Stop hero video" hidden>
+          Stop film
+        </button>
+      </div>
+
+      <div class="relative z-10 mx-auto grid w-full max-w-[1440px] grid-cols-1 items-end gap-14 px-5 pb-24 pt-28 sm:px-8 lg:grid-cols-[1.1fr_.9fr] lg:px-12 lg:pb-32">
+        <div class="max-w-3xl">
+          <div class="mb-8 flex items-center gap-3 text-[10px] font-bold uppercase tracking-[.28em] text-cyan">
+            <span class="h-px w-10 bg-cyan"></span>
+            Magnetic linear control · Automatic door systems
+          </div>
+          <h1 class="font-display text-5xl font-extrabold leading-[.99] tracking-[-.055em] text-white sm:text-6xl md:text-7xl xl:text-[92px]">
+            Motion,<br /><span class="text-cyan">reimagined.</span>
+          </h1>
+          <p class="mt-8 max-w-xl text-base leading-8 text-white/75 sm:text-lg">
+            A new standard in automatic door movement. Experience magnetic drive technology engineered for quiet performance, intelligent control and effortless everyday motion.
+          </p>
+          <div class="mt-10 flex flex-wrap items-center gap-4">
+            <a href="#technology" class="group inline-flex items-center rounded-full bg-cyan px-7 py-4 text-[10px] font-extrabold uppercase tracking-[.2em] text-ink transition hover:bg-white">Explore the technology <span class="ml-5 text-base transition group-hover:translate-x-1">→</span></a>
+            <a href="#contact" class="inline-flex items-center rounded-full border border-white/35 px-7 py-4 text-[10px] font-extrabold uppercase tracking-[.2em] text-white transition hover:border-cyan hover:text-cyan">Request a consultation</a>
+          </div>
+        </div>
+
+        <div class="justify-self-start lg:justify-self-end lg:pb-2">
+          <div class="max-w-sm border-l border-cyan/70 pl-6">
+            <p class="text-[10px] font-bold uppercase tracking-[.25em] text-cyan">The MAGNAGLIDE difference</p>
+            <p class="mt-4 font-display text-2xl font-semibold leading-snug text-white">Silent. Smooth. Safe. Smart. <span class="text-white/45">Built to last.</span></p>
+            <div class="mt-6 flex items-center gap-3 text-[10px] font-bold uppercase tracking-[.18em] text-white/55">
+              <span class="h-2 w-2 rounded-full bg-cyan shadow-[0_0_14px_#39c7d8]"></span>
+              Engineered for effortless motion
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="absolute bottom-0 left-0 right-0 z-10 border-t border-white/10 bg-ink/55 backdrop-blur-md">
+        <div class="mx-auto grid max-w-[1440px] grid-cols-2 gap-y-4 px-5 py-5 sm:grid-cols-5 sm:px-8 lg:px-12">
+          <div><p class="text-[9px] uppercase tracking-[.2em] text-white/45">01</p><p class="mt-1 text-xs font-semibold text-white">Advanced Magnetic Drive</p></div>
+          <div><p class="text-[9px] uppercase tracking-[.2em] text-white/45">02</p><p class="mt-1 text-xs font-semibold text-white">Quiet Performance</p></div>
+          <div><p class="text-[9px] uppercase tracking-[.2em] text-white/45">03</p><p class="mt-1 text-xs font-semibold text-white">Intelligent Control</p></div>
+          <div><p class="text-[9px] uppercase tracking-[.2em] text-white/45">04</p><p class="mt-1 text-xs font-semibold text-white">Custom Solutions</p></div>
+          <div class="col-span-2 sm:col-span-1"><p class="text-[9px] uppercase tracking-[.2em] text-white/45">North America</p><p class="mt-1 text-xs font-semibold text-cyan">Exclusive partner · IMSENT INC</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 02 / TECHNOLOGY -->
+    <section id="technology" class="relative overflow-hidden bg-mist py-24 text-ink sm:py-32">
+      <div class="absolute -right-32 top-0 h-[500px] w-[500px] rounded-full border border-ink/10"></div>
+      <div class="absolute -right-16 top-16 h-[360px] w-[360px] rounded-full border border-ink/10"></div>
+      <div class="relative mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
+        <div class="grid gap-16 lg:grid-cols-[.8fr_1.2fr] lg:items-end">
+          <div class="reveal">
+            <p class="mb-6 flex items-center gap-3 text-[10px] font-extrabold uppercase tracking-[.25em] text-[#138b9b]"><span class="h-px w-9 bg-[#138b9b]"></span> 02 / The technology</p>
+            <h2 class="font-display text-4xl font-extrabold leading-[1.04] tracking-[-.05em] sm:text-6xl">A different kind<br />of <span class="text-[#138b9b]">drive.</span></h2>
+          </div>
+          <div class="reveal max-w-2xl lg:justify-self-end">
+            <p class="text-lg leading-8 text-ink/70">At the heart of MAGNAGLIDE is an advanced magnetic linear control approach to automatic door movement. The result is a refined experience designed around precision, quiet operation and intelligent control.</p>
+            <p class="mt-5 text-sm leading-7 text-ink/55">A considered solution for spaces where the way a door moves matters as much as the architecture around it.</p>
+          </div>
+        </div>
+
+        <div class="mt-16 grid gap-5 lg:grid-cols-[1.2fr_.8fr]">
+          <div class="reveal relative min-h-[390px] overflow-hidden rounded-[2rem] bg-[#0b2732] text-white" data-video-player>
+            <!-- VIDEO 01: Replace "magnaglide-video-01.mp4" with the original single large glass door demonstration. -->
+            <video class="absolute inset-0 h-full w-full object-cover opacity-70" muted playsinline preload="none" poster="page-2.PNG">
+              <source src="MAGNAGLIDE.mp4" type="video/mp4" />
+            </video>
+            <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink via-ink/15 to-transparent"></div>
+            <button type="button" class="video-play-button play-ring absolute left-1/2 top-1/2 z-10 inline-flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-cyan text-ink transition hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white" aria-label="Play magnetic linear control video">
+              <svg aria-hidden="true" class="ml-1 h-5 w-5 fill-current" viewBox="0 0 16 16"><path d="M4 2.8a.8.8 0 0 1 1.2-.69l8 5.2a.8.8 0 0 1 0 1.38l-8 5.2A.8.8 0 0 1 4 13.2z"/></svg>
+            </button>
+            <button type="button" class="video-stop-button absolute right-8 top-16 z-10 rounded-full border border-white/40 bg-ink/65 px-4 py-2 text-[9px] font-bold uppercase tracking-[.18em] text-white backdrop-blur transition hover:border-cyan hover:text-cyan focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan" aria-label="Stop magnetic linear control video" hidden>
+              Stop
+            </button>
+            <div class="pointer-events-none absolute bottom-0 p-8 sm:p-10">
+              <p class="text-[10px] font-bold uppercase tracking-[.22em] text-cyan">Magnetic linear control</p>
+              <h3 class="mt-3 font-display text-3xl font-bold">Precision in motion.</h3>
+              <p class="mt-3 max-w-md text-sm leading-6 text-white/70">A closer look at the movement behind the MAGNAGLIDE experience.</p>
+            </div>
+            <span class="absolute right-8 top-8 text-xs font-bold tracking-[.2em] text-white/70">01 — 04</span>
+          </div>
+          <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-1">
+            <article class="reveal rounded-[2rem] border border-ink/10 bg-white p-7 sm:p-8">
+              <span class="text-xs font-bold text-[#138b9b]">01 / DRIVE</span>
+              <h3 class="mt-5 font-display text-2xl font-bold">Advanced magnetic drive</h3>
+              <p class="mt-3 text-sm leading-7 text-ink/60">A magnetic approach designed to deliver a refined automatic door experience.</p>
+            </article>
+            <article class="reveal rounded-[2rem] bg-[#dce8e9] p-7 sm:p-8">
+              <span class="text-xs font-bold text-[#138b9b]">02 / CONTROL</span>
+              <h3 class="mt-5 font-display text-2xl font-bold">Intelligent control</h3>
+              <p class="mt-3 text-sm leading-7 text-ink/60">Thoughtful control at the center of a smooth, seamless passage.</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="mt-5 grid gap-5 sm:grid-cols-3">
+          <div class="reveal border-t border-ink/15 pt-6"><p class="text-[10px] font-bold uppercase tracking-[.2em] text-[#138b9b]">Quiet by design</p><p class="mt-3 text-sm leading-6 text-ink/65">Quiet performance for spaces that value calm.</p></div>
+          <div class="reveal border-t border-ink/15 pt-6"><p class="text-[10px] font-bold uppercase tracking-[.2em] text-[#138b9b]">Smooth by nature</p><p class="mt-3 text-sm leading-6 text-ink/65">Effortless movement that complements modern architecture.</p></div>
+          <div class="reveal border-t border-ink/15 pt-6"><p class="text-[10px] font-bold uppercase tracking-[.2em] text-[#138b9b]">Built for the long term</p><p class="mt-3 text-sm leading-6 text-ink/65">A system designed with lasting performance in mind.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 03 / SOLUTIONS -->
+    <section id="solutions" class="bg-[#0b2732] py-24 sm:py-32">
+      <div class="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
+        <div class="flex flex-col justify-between gap-8 md:flex-row md:items-end">
+          <div class="reveal">
+            <p class="mb-6 flex items-center gap-3 text-[10px] font-extrabold uppercase tracking-[.25em] text-cyan"><span class="h-px w-9 bg-cyan"></span> 03 / Door configurations</p>
+            <h2 class="font-display text-4xl font-extrabold leading-[1.04] tracking-[-.05em] text-white sm:text-6xl">Designed to move<br /><span class="text-white/35">with your space.</span></h2>
+          </div>
+          <p class="reveal max-w-md text-sm leading-7 text-white/55">From transparent glass to warm timber, explore configurations that bring effortless movement to different architectural settings.</p>
+        </div>
+
+        <div class="mt-14 grid gap-5 md:grid-cols-2">
+          <article class="door-card reveal group overflow-hidden rounded-[1.7rem] border border-white/10 bg-[#123541]">
+            <div class="relative h-[290px] overflow-hidden bg-[#d4e0e2]" data-video-player>
+              <!-- VIDEO 01 / IMAGE PLACEHOLDER: Single large glass door. Replace poster image with a still from Video 01 if available. -->
+              <video class="door-image h-full w-full object-cover" muted loop playsinline preload="none" poster="single-glass.PNG">
+                <source src="single-glass.mp4" type="video/mp4" />
+              </video>
+              <button type="button" class="video-play-button play-ring absolute left-1/2 top-1/2 z-10 inline-flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-cyan text-ink transition hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white" aria-label="Play single glass door video">
+                <svg aria-hidden="true" class="ml-1 h-5 w-5 fill-current" viewBox="0 0 16 16"><path d="M4 2.8a.8.8 0 0 1 1.2-.69l8 5.2a.8.8 0 0 1 0 1.38l-8 5.2A.8.8 0 0 1 4 13.2z"/></svg>
+              </button>
+              <span class="absolute left-6 top-6 rounded-full border border-white/60 bg-ink/30 px-4 py-2 text-[9px] font-bold uppercase tracking-[.2em] text-white backdrop-blur">Configuration 01</span>
+            </div>
+            <div class="flex items-end justify-between gap-4 p-7">
+              <div><p class="text-[10px] font-bold uppercase tracking-[.2em] text-cyan">Glass · Single leaf</p><h3 class="mt-2 font-display text-2xl font-bold text-white">Single glass door</h3><p class="mt-2 text-xs leading-6 text-white/50">A clean, expansive glass opening.</p></div>
+              <span class="text-2xl text-cyan transition group-hover:translate-x-1">↗</span>
+            </div>
+          </article>
+
+          <article class="door-card reveal group overflow-hidden rounded-[1.7rem] border border-white/10 bg-[#123541]">
+            <div class="relative h-[290px] overflow-hidden bg-[#c8bba9]" data-video-player>
+              <!-- VIDEO 02 / IMAGE PLACEHOLDER: Single wood door. Replace with Video 02 or a client-approved timber door still. -->
+              <video class="door-image h-full w-full object-cover" muted loop playsinline preload="none" poster="wooddoor.PNG">
+                <source src="wooddoor-video.mp4" type="video/mp4" />
+              </video>
+              <button type="button" class="video-play-button play-ring absolute left-1/2 top-1/2 z-10 inline-flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-cyan text-ink transition hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white" aria-label="Play single wood door video">
+                <svg aria-hidden="true" class="ml-1 h-5 w-5 fill-current" viewBox="0 0 16 16"><path d="M4 2.8a.8.8 0 0 1 1.2-.69l8 5.2a.8.8 0 0 1 0 1.38l-8 5.2A.8.8 0 0 1 4 13.2z"/></svg>
+              </button>
+              <span class="absolute left-6 top-6 rounded-full border border-white/60 bg-ink/30 px-4 py-2 text-[9px] font-bold uppercase tracking-[.2em] text-white backdrop-blur">Configuration 02</span>
+            </div>
+            <div class="flex items-end justify-between gap-4 p-7">
+              <div><p class="text-[10px] font-bold uppercase tracking-[.2em] text-cyan">Wood · Single leaf</p><h3 class="mt-2 font-display text-2xl font-bold text-white">Single wood door</h3><p class="mt-2 text-xs leading-6 text-white/50">Warm materiality, effortless movement.</p></div>
+              <span class="text-2xl text-cyan transition group-hover:translate-x-1">↗</span>
+            </div>
+          </article>
+
+          <article class="door-card reveal group overflow-hidden rounded-[1.7rem] border border-white/10 bg-[#123541]">
+            <div class="relative h-[290px] overflow-hidden bg-[#cbdadd]" data-video-player>
+              <!-- VIDEO 03: Replace "magnaglide-video-03.mp4" with the three-panel telescopic glass door demonstration. -->
+              <video class="door-image h-full w-full object-cover" muted loop playsinline preload="none" poster="three panels.PNG">
+                <source src="three-panel video.mp4" type="video/mp4" />
+              </video>
+              <button type="button" class="video-play-button play-ring absolute left-1/2 top-1/2 z-10 inline-flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-cyan text-ink transition hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white" aria-label="Play three-panel system video">
+                <svg aria-hidden="true" class="ml-1 h-5 w-5 fill-current" viewBox="0 0 16 16"><path d="M4 2.8a.8.8 0 0 1 1.2-.69l8 5.2a.8.8 0 0 1 0 1.38l-8 5.2A.8.8 0 0 1 4 13.2z"/></svg>
+              </button>
+              <span class="absolute left-6 top-6 rounded-full border border-white/60 bg-ink/30 px-4 py-2 text-[9px] font-bold uppercase tracking-[.2em] text-white backdrop-blur">Configuration 03</span>
+            </div>
+            <div class="flex items-end justify-between gap-4 p-7">
+              <div><p class="text-[10px] font-bold uppercase tracking-[.2em] text-cyan">Glass · Three panels</p><h3 class="mt-2 font-display text-2xl font-bold text-white">Three-panel system</h3><p class="mt-2 text-xs leading-6 text-white/50">A coordinated multi-panel opening movement.</p></div>
+              <span class="text-2xl text-cyan transition group-hover:translate-x-1">↗</span>
+            </div>
+          </article>
+
+          <article class="door-card reveal group overflow-hidden rounded-[1.7rem] border border-white/10 bg-[#123541]">
+            <div class="relative h-[290px] overflow-hidden bg-[#cbdadd]" data-video-player>
+              <!-- VIDEO 04: Replace "magnaglide-video-04.mp4" with the large double-leaf glass door video from the supplied screenshot. -->
+              <video class="door-image h-full w-full object-cover" muted loop playsinline preload="none" poster="double-glass-door.PNG">
+                <source src="double-glass-door.mp4" type="video/mp4" />
+              </video>
+              <button type="button" class="video-play-button play-ring absolute left-1/2 top-1/2 z-10 inline-flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-cyan text-ink transition hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white" aria-label="Play double glass door video">
+                <svg aria-hidden="true" class="ml-1 h-5 w-5 fill-current" viewBox="0 0 16 16"><path d="M4 2.8a.8.8 0 0 1 1.2-.69l8 5.2a.8.8 0 0 1 0 1.38l-8 5.2A.8.8 0 0 1 4 13.2z"/></svg>
+              </button>
+              <span class="absolute left-6 top-6 rounded-full border border-white/60 bg-ink/30 px-4 py-2 text-[9px] font-bold uppercase tracking-[.2em] text-white backdrop-blur">Configuration 04</span>
+            </div>
+            <div class="flex items-end justify-between gap-4 p-7">
+              <div><p class="text-[10px] font-bold uppercase tracking-[.2em] text-cyan">Glass · Double leaf</p><h3 class="mt-2 font-display text-2xl font-bold text-white">Double glass door</h3><p class="mt-2 text-xs leading-6 text-white/50">A generous entrance for larger spaces.</p></div>
+              <span class="text-2xl text-cyan transition group-hover:translate-x-1">↗</span>
+            </div>
+          </article>
+        </div>
+        <p class="mt-6 text-[10px] leading-5 text-white/35">Configuration names are descriptive labels for the four demonstrations supplied for this project. Confirm final product naming and technical compatibility with IMSENT INC before publication.</p>
+      </div>
+    </section>
+
+    <!-- PAGE 04 / PERFORMANCE -->
+    <section id="performance" class="relative overflow-hidden bg-mist py-24 text-ink sm:py-32">
+      <div class="absolute -left-40 top-24 h-[480px] w-[480px] rounded-full bg-[#dcebed] blur-3xl"></div>
+      <div class="relative mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
+        <div class="reveal max-w-3xl">
+          <p class="mb-6 flex items-center gap-3 text-[10px] font-extrabold uppercase tracking-[.25em] text-[#138b9b]"><span class="h-px w-9 bg-[#138b9b]"></span> 04 / Performance promise</p>
+          <h2 class="font-display text-4xl font-extrabold leading-[1.04] tracking-[-.05em] sm:text-6xl">Five principles.<br /><span class="text-[#138b9b]">One effortless experience.</span></h2>
+        </div>
+        <div class="mt-16 grid gap-px overflow-hidden rounded-[1.8rem] border border-ink/10 bg-ink/10 sm:grid-cols-2 lg:grid-cols-5">
+          <article class="reveal bg-white p-7 sm:p-8">
+            <span class="font-display text-5xl font-extrabold text-[#138b9b]/25">01</span>
+            <h3 class="mt-10 font-display text-2xl font-extrabold">Silent.</h3>
+            <p class="mt-4 text-sm leading-7 text-ink/60">Quiet performance that respects the atmosphere of every space.</p>
+          </article>
+          <article class="reveal bg-white p-7 sm:p-8">
+            <span class="font-display text-5xl font-extrabold text-[#138b9b]/25">02</span>
+            <h3 class="mt-10 font-display text-2xl font-extrabold">Smooth.</h3>
+            <p class="mt-4 text-sm leading-7 text-ink/60">Fluid movement for a natural, seamless passage.</p>
+          </article>
+          <article class="reveal bg-white p-7 sm:p-8">
+            <span class="font-display text-5xl font-extrabold text-[#138b9b]/25">03</span>
+            <h3 class="mt-10 font-display text-2xl font-extrabold">Safe.</h3>
+            <p class="mt-4 text-sm leading-7 text-ink/60">Safety is an essential part of a thoughtfully designed door system.</p>
+          </article>
+          <article class="reveal bg-white p-7 sm:p-8">
+            <span class="font-display text-5xl font-extrabold text-[#138b9b]/25">04</span>
+            <h3 class="mt-10 font-display text-2xl font-extrabold">Smart.</h3>
+            <p class="mt-4 text-sm leading-7 text-ink/60">Intelligent control at the heart of the experience.</p>
+          </article>
+          <article class="reveal bg-[#0b2732] p-7 text-white sm:p-8">
+            <span class="font-display text-5xl font-extrabold text-cyan/35">05</span>
+            <h3 class="mt-10 font-display text-2xl font-extrabold">Built to last.</h3>
+            <p class="mt-4 text-sm leading-7 text-white/55">Designed with lasting performance in mind.</p>
+          </article>
+        </div>
+
+        <div class="reveal mt-16 grid gap-10 rounded-[2rem] bg-[#dce8e9] p-8 sm:p-12 lg:grid-cols-[1fr_auto] lg:items-center">
+          <div>
+            <p class="text-[10px] font-extrabold uppercase tracking-[.22em] text-[#138b9b]">A considered fit for modern spaces</p>
+            <h3 class="mt-4 max-w-2xl font-display text-3xl font-extrabold leading-tight tracking-[-.04em] sm:text-4xl">The right movement changes how a space feels.</h3>
+            <p class="mt-4 max-w-2xl text-sm leading-7 text-ink/60">Explore a MAGNAGLIDE configuration for your next architectural or commercial project.</p>
+          </div>
+          <a href="#contact" class="inline-flex items-center justify-center rounded-full bg-ink px-7 py-4 text-[10px] font-extrabold uppercase tracking-[.2em] text-white transition hover:bg-[#138b9b]">Discuss your project <span class="ml-5 text-base">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 05 / ABOUT + CONTACT -->
+    <section id="about" class="bg-ink py-24 sm:py-32">
+      <div class="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
+        <div class="grid gap-16 lg:grid-cols-2 lg:items-center">
+          <div class="reveal">
+            <p class="mb-6 flex items-center gap-3 text-[10px] font-extrabold uppercase tracking-[.25em] text-cyan"><span class="h-px w-9 bg-cyan"></span> 05 / Your North American partner</p>
+            <h2 class="font-display text-4xl font-extrabold leading-[1.04] tracking-[-.05em] text-white sm:text-6xl">A new movement.<br /><span class="text-cyan">A trusted partner.</span></h2>
+            <p class="mt-8 max-w-xl text-base leading-8 text-white/65">MAGNAGLIDE brings a distinctive magnetic linear control automatic door system to the North American market. IMSENT INC is the exclusive importer and partner for MAGNAGLIDE in North America.</p>
+            <div class="mt-10 flex items-center gap-5 border-t border-white/15 pt-7">
+              <div class="flex h-14 w-14 items-center justify-center rounded-full border border-cyan/40 text-cyan">✳</div>
+              <div><p class="text-sm font-bold text-white">IMSENT INC</p><p class="mt-1 text-[10px] uppercase tracking-[.18em] text-white/45">Exclusive importer & partner · North America</p></div>
+            </div>
+          </div>
+
+          <div id="contact" class="reveal rounded-[2rem] border border-white/10 bg-[#0d2a35] p-7 sm:p-10">
+            <p class="text-[10px] font-extrabold uppercase tracking-[.22em] text-cyan">Start a conversation</p>
+            <h3 class="mt-4 font-display text-3xl font-bold text-white">Let's move your project forward.</h3>
+            <p class="mt-3 text-sm leading-7 text-white/55">Tell us a little about your project and the MAGNAGLIDE team can help you explore the next step.</p>
+
+            <!-- CONTACT FORM:
+                 This is a front-end demonstration only. Before publishing:
+                 1) Replace the form action / JavaScript handler with the client's
+                    approved form service or backend endpoint.
+                 2) Confirm the official IMSENT INC email, phone and address.
+                 3) Do not publish invented contact details.
+            -->
+            <form id="contactForm" class="mt-8 space-y-4">
+              <div class="grid gap-4 sm:grid-cols-2">
+                <label class="block"><span class="mb-2 block text-[10px] font-bold uppercase tracking-[.16em] text-white/55">Your name</span><input required name="name" type="text" placeholder="Full name" class="w-full rounded-xl border border-white/10 bg-ink/70 px-4 py-4 text-sm text-white outline-none transition placeholder:text-white/25 focus:border-cyan" /></label>
+                <label class="block"><span class="mb-2 block text-[10px] font-bold uppercase tracking-[.16em] text-white/55">Company</span><input name="company" type="text" placeholder="Company name" class="w-full rounded-xl border border-white/10 bg-ink/70 px-4 py-4 text-sm text-white outline-none transition placeholder:text-white/25 focus:border-cyan" /></label>
+              </div>
+              <label class="block"><span class="mb-2 block text-[10px] font-bold uppercase tracking-[.16em] text-white/55">Email address</span><input required name="email" type="email" placeholder="you@company.com" class="w-full rounded-xl border border-white/10 bg-ink/70 px-4 py-4 text-sm text-white outline-none transition placeholder:text-white/25 focus:border-cyan" /></label>
+              <label class="block"><span class="mb-2 block text-[10px] font-bold uppercase tracking-[.16em] text-white/55">Tell us about your project</span><textarea required name="message" rows="4" placeholder="Project type, door configuration, timeline..." class="w-full resize-y rounded-xl border border-white/10 bg-ink/70 px-4 py-4 text-sm text-white outline-none transition placeholder:text-white/25 focus:border-cyan"></textarea></label>
+              <button type="submit" class="group flex w-full items-center justify-between rounded-full bg-cyan px-7 py-4 text-[10px] font-extrabold uppercase tracking-[.2em] text-ink transition hover:bg-white"><span>Send project inquiry</span><span class="text-base transition group-hover:translate-x-1">→</span></button>
+              <p id="formMessage" class="hidden text-xs leading-5 text-cyan" role="status"></p>
+              <p class="text-[10px] leading-5 text-white/30">Demo form only — connect to the client's approved inquiry endpoint before launch.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/10 bg-[#05151c]">
+    <div class="mx-auto flex max-w-[1440px] flex-col gap-8 px-5 py-10 sm:px-8 md:flex-row md:items-center md:justify-between lg:px-12">
+      <div class="flex items-center gap-4">
+        <!-- FOOTER LOGO: Uses the same logo file as the header. -->
+        <img src="big-logo.png" alt="MAGNAGLIDE — Engineered for Effortless Motion" class="h-28 w-auto object-contain sm:h-36" />
+        <!--<div class="h-10 w-px bg-white/15"></div>
+      <p class="text-[11px] uppercase leading-6 tracking-[.14em] text-white/55">Engineered for<br />effortless motion</p>-->
+      </div>
+      <div class="flex flex-wrap gap-x-6 gap-y-3 text-[10px] font-bold uppercase tracking-[.16em] text-white/45">
+        <a href="#technology" class="hover:text-cyan">Technology</a><a href="#solutions" class="hover:text-cyan">Solutions</a><a href="#performance" class="hover:text-cyan">Performance</a><a href="#contact" class="hover:text-cyan">Contact</a>
+      </div>
+      <p class="text-[10px] text-white/30">© <span id="year"></span> MAGNAGLIDE · IMSENT INC</p>
+    </div>
+    <!-- CONTACT DETAILS PLACEHOLDER: Add only verified official website, email, phone and business address when supplied by the client. -->
+  </footer>
+
+  <script>
+    // VIDEO PLAYBACK: keep each poster visible until its own play button is clicked.
+    document.querySelectorAll('[data-video-player]').forEach(player => {
+      const video = player.querySelector('video');
+      const playButton = player.querySelector('.video-play-button');
+      const stopButton = player.querySelector('.video-stop-button');
+
+      playButton.addEventListener('click', () => {
+        video.controls = true;
+        video.play().catch(error => {
+          video.controls = false;
+          console.error('Unable to play video:', error);
+          playButton.setAttribute('aria-label', 'Video could not be played. Try again.');
+        });
+      });
+
+      if (stopButton) {
+        stopButton.addEventListener('click', () => {
+          video.pause();
+          video.currentTime = 0;
+          video.load();
+          video.controls = false;
+          playButton.hidden = false;
+          stopButton.hidden = true;
+        });
+      }
+
+      video.addEventListener('playing', () => {
+        playButton.hidden = true;
+        if (stopButton) stopButton.hidden = false;
+      });
+      video.addEventListener('pause', () => {
+        playButton.hidden = false;
+      });
+      video.addEventListener('ended', () => {
+        playButton.hidden = false;
+        if (stopButton) stopButton.hidden = true;
+      });
+    });
+
+    // MOBILE NAVIGATION: open/close the compact menu and close it after a section is selected.
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click', () => {
+      const isOpen = !mobileMenu.classList.contains('hidden');
+      mobileMenu.classList.toggle('hidden');
+      menuBtn.setAttribute('aria-expanded', String(!isOpen));
+      menuBtn.setAttribute('aria-label', isOpen ? 'Open navigation' : 'Close navigation');
+      menuBtn.querySelector('span').textContent = isOpen ? '☰' : '×';
+    });
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuBtn.setAttribute('aria-expanded', 'false');
+        menuBtn.querySelector('span').textContent = '☰';
+      });
+    });
+
+    // SCROLL REVEAL: subtle entrance motion for content blocks.
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // ACTIVE NAV LINK: highlights the section currently in view.
+    const sections = document.querySelectorAll('main section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id));
+        }
+      });
+    }, { rootMargin: '-35% 0px -55% 0px' });
+    sections.forEach(section => sectionObserver.observe(section));
+
+    // CONTACT FORM DEMO:
+    // Replace this demo handler with the client's real form endpoint before launch.
+    // For now, it validates fields and displays a clear preview-only message.
+    document.getElementById('contactForm').addEventListener('submit', (event) => {
+      event.preventDefault();
+      const message = document.getElementById('formMessage');
+      message.textContent = 'Thank you — this demo form is ready to be connected to the official IMSENT INC inquiry system.';
+      message.classList.remove('hidden');
+    });
+
+    // AUTO YEAR in footer.
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
